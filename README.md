@@ -1,2 +1,2 @@
 # WeHelp-Bootcamp
-My Application
+My Application for WeHelp-Bootcamp.
