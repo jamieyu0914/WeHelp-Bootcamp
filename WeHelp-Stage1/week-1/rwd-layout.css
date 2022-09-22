@@ -55,6 +55,7 @@ html {
   display: flex;
   justify-content: center; /*水平置中*/
   align-items: center;
+  flex-wrap: wrap;
   width: 1200px;
 }
 .list-block-2 {
@@ -65,6 +66,8 @@ html {
   width: 1200px;
 }
 .promotion {
+  display: flex;
+  flex-wrap: wrap;
   flex: auto;
   width: 280px;
   height: 50px;
@@ -74,6 +77,8 @@ html {
   background-color: rgb(204, 224, 240);
 }
 .img {
+  display: flex;
+  flex-wrap: wrap;
   flex: auto;
   min-width: 280px;
   align-items: center;
@@ -95,6 +100,7 @@ html {
   align-items: center;
   vertical-align: top;
   text-align: center;
+  width: 100%;
 }
 
 .desktop-menu {
@@ -102,10 +108,17 @@ html {
   display: block;
 }
 
+.image {
+  width: 100%;
+}
+
 @media (max-width: 1200px) {
   /* 螢幕寬度小於 1200px, 套用這個區塊的 css*/
   .menu {
     flex-wrap: wrap;
+  }
+  .promotion {
+    width: 45%;
   }
 
   .list-block-1 {
@@ -113,19 +126,23 @@ html {
   }
 
   .list-block-2 {
-    width: 90%;
+    width: 95%;
   }
 
   .img {
     width: 100%;
   }
 
+  .image {
+    width: 100%;
+  }
+
   .title {
-    width: 70%;
+    width: 100%;
   }
 
   .title-item {
-    width: 40%;
+    width: 45%;
   }
 }
 
@@ -147,20 +164,23 @@ html {
     width: 90%;
   }
   .list-block-1 {
-    display: block;
     width: 90%;
   }
 
   .list-block-2 {
-    width: 90%;
+    width: 95%;
   }
 
   .img {
-    width: 90%;
+    width: 100%;
+  }
+
+  .image {
+    width: 100%;
   }
 
   .title {
-    flex: 90%;
+    width: 90%;
   }
 
   .title-item {
