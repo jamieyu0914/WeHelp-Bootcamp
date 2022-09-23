@@ -11,6 +11,8 @@ html {
   flex: none; /*固定配置*/
   text-align: center;
   justify-content: center; /*水平置中*/
+  align-items: center;
+
 }
 .desktop-menu-right {
   display: flex;
