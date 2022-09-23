@@ -156,7 +156,7 @@ html {
     flex-wrap: wrap;
   }
   .desktop-menu-left {
-    display: block;
+    display: grid;
   }
   .desktop-menu-right {
     display: none;
