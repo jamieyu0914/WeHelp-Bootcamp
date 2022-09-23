@@ -7,7 +7,6 @@ html {
   justify-items: center;
 }
 .desktop-menu-left {
-  margin: 10px;
   text-align: center;
   justify-content: center; /*水平置中*/
   align-items: center;
@@ -155,7 +154,6 @@ html {
   .desktop-menu-left {
     display: grid;
     align-content: center;
-    margin: 10px;
   }
   .desktop-menu-right {
     display: none;
