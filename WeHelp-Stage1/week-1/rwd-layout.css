@@ -8,6 +8,8 @@ html {
 }
 .desktop-menu-left {
   display: flex;
+  display: grid;
+  flex: none;
   flex: none; /*固定配置*/
   text-align: center;
   justify-content: center; /*水平置中*/
@@ -155,11 +157,6 @@ html {
   }
   .desktop-menu-left {
     display: block;
-    display: grid;
-    flex: none;
-    text-align: center;
-    justify-content: center;
-    align-items: center;
   }
   .desktop-menu-right {
     display: none;
