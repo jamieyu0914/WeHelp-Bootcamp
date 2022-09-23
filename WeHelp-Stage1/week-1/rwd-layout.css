@@ -155,6 +155,7 @@ html {
   .desktop-menu-left {
     display: grid;
     align-content: center;
+    margin: 10px;
   }
   .desktop-menu-right {
     display: none;
