@@ -8,7 +8,8 @@ html {
 }
 .desktop-menu-left {
   flex: none; /*固定配置*/
-  margin: 10px;
+  display: flex;
+  align-items: center;
   text-align: center;
   justify-content: center; /*水平置中*/
 }
