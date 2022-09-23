@@ -155,6 +155,11 @@ html {
   }
   .desktop-menu-left {
     display: block;
+    display: grid;
+    flex: none;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
   }
   .desktop-menu-right {
     display: none;
