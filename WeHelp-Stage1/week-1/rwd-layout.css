@@ -9,6 +9,7 @@ html {
 .desktop-menu-left {
   display: flex;
   flex: none; /*固定配置*/
+  margin: 10px;
   text-align: center;
   justify-content: center; /*水平置中*/
   align-items: center;
