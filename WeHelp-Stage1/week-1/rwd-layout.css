@@ -157,6 +157,7 @@ html {
   }
   .desktop-menu-left {
     display: grid;
+    align-content: center;
   }
   .desktop-menu-right {
     display: none;
