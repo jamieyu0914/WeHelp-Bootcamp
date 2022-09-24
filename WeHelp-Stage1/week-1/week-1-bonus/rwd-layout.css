@@ -91,21 +91,23 @@ html {
   min-width: 25px;
   align-items: center;
   vertical-align: bottom;
-  position: relative; /*設定為絕對位置*/
+  position: absolute; /*設定為絕對位置*/
   z-index: 999; /*設定重叠的上下次序，值越大月在上方*/
-  bottom: 170px;
-  left: 245px;
+  padding-top: 10px; /*上邊距距離*/
+  padding-right: 10px; /*右邊距距離*/
 }
 .title-item {
   display: flex;
   flex-wrap: wrap;
   width: 280px;
   height: 175px;
-  margin: 10px;
-  justify-content: center; /*水平置中*/
-  align-items: center;
+  margin-top: 10px;
+  margin-left: 10px;
+  margin-right: 10px;
+  margin-bottom: 10px;
+  justify-content: end; /*水平靠右*/
   vertical-align: top;
-  background-color: rgb(204, 224, 240);
+  position: relative;
 }
 .title {
   background-color: rgba(255, 255, 255, 0.5);
@@ -113,9 +115,9 @@ html {
   align-items: end;
   vertical-align: top;
   text-align: center;
-  position: relative; /*設定為絕對位置*/
+  position: relative; /*設定為相對位置*/
   z-index: 999; /*設定重叠的上下次序，值越大月在上方*/
-  bottom: 55px;
+  bottom: 20px;
   width: 280px;
 }
 
@@ -126,6 +128,7 @@ html {
 
 .image {
   width: 100%;
+  height: 100%;
 }
 
 @media (max-width: 1200px) {
@@ -143,6 +146,7 @@ html {
 
   .list-block-2 {
     width: 95%;
+    height: 95%;
   }
 
   .img {
@@ -151,10 +155,7 @@ html {
 
   .image {
     width: 100%;
-  }
-
-  .imgs {
-    width: 100%;
+    height: 100%;
   }
 
   .title {
@@ -163,6 +164,8 @@ html {
 
   .title-item {
     width: 45%;
+    height: 45%;
+    margin-bottom: -10px;
   }
 }
 
@@ -198,10 +201,7 @@ html {
 
   .image {
     width: 100%;
-  }
-
-  .imgs {
-    width: 90%;
+    height: 100%;
   }
 
   .title {
@@ -210,5 +210,6 @@ html {
 
   .title-item {
     width: 90%;
+    height: 90%;
   }
 }
