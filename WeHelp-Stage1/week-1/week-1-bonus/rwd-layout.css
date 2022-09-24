@@ -117,7 +117,7 @@ html {
   text-align: center;
   position: relative; /*設定為相對位置*/
   z-index: 999; /*設定重叠的上下次序，值越大月在上方*/
-  bottom: 20px;
+  bottom: 24px; /*緊貼底部*/
   width: 280px;
 }
 
