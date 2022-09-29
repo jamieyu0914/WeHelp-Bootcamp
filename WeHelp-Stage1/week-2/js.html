@@ -117,14 +117,14 @@
           console.log("Q4.");
           function maxProduct(nums) {
             // 請用你的程式補完這個函式的區塊
-            var Array = []; //儲存結果的空陣列
+            let Array = []; //儲存結果的空陣列
             for (i = 0; i < nums.length; i++) {
               for (j = i + 1; j < nums.length; j++) {
                 result = nums[i] * nums[j]; // 兩兩數字相乘
-                var newLength = Array.push(result); //將相乘結果丟進陣列
+                let newLength = Array.push(result); //將相乘結果丟進陣列
               }
             }
-            var max = Math.max(...Array);
+            let max = Math.max(...Array);
             console.log(max);
           }
           maxProduct([5, 20, 2, 6]); // 得到 120
@@ -180,7 +180,7 @@
                 continue;
               }
             }
-            var result = Math.max(...array);
+            let result = Math.max(...array);
             console.log(result);
           }
           maxZeros([0, 1, 0, 0]); // 得到 2
