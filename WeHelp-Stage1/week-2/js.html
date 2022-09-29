@@ -94,6 +94,7 @@
           function func(a) {
             // 請用你的程式補完這個函式的區塊
             //console.log(a); //前值
+            let result = 0;
             function func(b, c) {
               //console.log(b*c); //後值相乘
               result = a + b * c;
@@ -118,6 +119,7 @@
           function maxProduct(nums) {
             // 請用你的程式補完這個函式的區塊
             let Array = []; //儲存結果的空陣列
+            let result = 0;
             for (i = 0; i < nums.length; i++) {
               for (j = i + 1; j < nums.length; j++) {
                 result = nums[i] * nums[j]; // 兩兩數字相乘
@@ -144,6 +146,7 @@
           console.log("Q5.");
           function twoSum(nums, target) {
             // your code here
+            let sum = 0;
             for (i = 0; i < nums.length; i++) {
               for (j = i + 1; j < nums.length; j++) {
                 sum = nums[i] + nums[j]; // 兩兩數字相加
