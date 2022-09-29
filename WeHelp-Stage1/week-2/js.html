@@ -123,7 +123,7 @@
             for (i = 0; i < nums.length; i++) {
               for (j = i + 1; j < nums.length; j++) {
                 result = nums[i] * nums[j]; // 兩兩數字相乘
-                let newLength = Array.push(result); //將相乘結果丟進陣列
+                Array.push(result); //將相乘結果丟進陣列
               }
             }
             let max = Math.max(...Array);
@@ -177,7 +177,7 @@
             for (i = 0; i < nums.length; i++) {
               if (nums[i] == 0) {
                 max++;
-                let newLength = array.push(max); //將連續長度丟進陣列
+                array.push(max); //將連續長度丟進陣列
               } else {
                 max = 0;
                 continue;
