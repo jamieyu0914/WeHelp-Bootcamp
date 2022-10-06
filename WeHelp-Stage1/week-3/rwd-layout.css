@@ -1,0 +1,193 @@
+html {
+  font-size: 125%;
+}
+.menu {
+  display: flex;
+  justify-content: center;
+  justify-items: center;
+}
+.desktop-menu-left {
+  display: grid;
+  text-align: center;
+  justify-content: center; /*水平置中*/
+  align-items: center;
+}
+.desktop-menu-right {
+  display: flex;
+  justify-content: flex-end; /*水平對齊靠右*/
+  flex: auto;
+}
+.item {
+  flex: none; /*固定配置*/
+  margin: 10px;
+  text-align: center;
+}
+.mobile-menu {
+  justify-content: flex-end; /*水平對齊靠右*/
+  flex: auto;
+  display: none;
+}
+.mobile-menu-icon {
+  float: right;
+  display: flex;
+  align-items: center;
+}
+.headline {
+  background-color: rgb(204, 224, 240);
+  display: flex;
+  justify-content: center; /*水平置中*/
+  align-items: center;
+  height: 300px;
+}
+.welcome {
+  font-size: 2em;
+  text-align: center;
+}
+.list {
+  display: flex;
+  justify-content: center; /*水平置中*/
+}
+.list-2 {
+  display: flex;
+  justify-content: center; /*水平置中*/
+}
+.list-block-1 {
+  display: flex;
+  justify-content: center; /*水平置中*/
+  align-items: center;
+  flex-wrap: wrap;
+  width: 1200px;
+}
+.list-block-2 {
+  display: flex;
+  justify-content: center; /*水平置中*/
+  align-items: center;
+  flex-wrap: wrap;
+  width: 1200px;
+}
+.promotion {
+  display: flex;
+  flex-wrap: wrap;
+  flex: auto;
+  width: 280px;
+  height: 50px;
+  margin: 10px;
+  display: flex;
+  align-items: center;
+  background-color: rgb(204, 224, 240);
+}
+.img {
+  display: flex;
+  flex-wrap: wrap;
+  flex: auto;
+  min-width: 280px;
+  align-self: flex-start;
+  vertical-align: bottom;
+}
+.title-item {
+  display: flex;
+  flex-wrap: wrap;
+  width: 280px;
+  height: 48%;
+  margin: 10px;
+  justify-content: center; /*水平置中*/
+  align-items: center;
+  vertical-align: top;
+  background-color: rgb(204, 224, 240);
+}
+.title {
+  margin: 10px;
+  justify-content: center; /*水平置中*/
+  align-items: center;
+  vertical-align: top;
+  text-align: center;
+  width: 100%;
+}
+
+.desktop-menu {
+  text-align: center;
+  display: block;
+}
+
+.image {
+  width: 100%;
+}
+
+@media (max-width: 1200px) {
+  /* 螢幕寬度小於 1200px, 套用這個區塊的 css*/
+  .menu {
+    flex-wrap: wrap;
+  }
+  .promotion {
+    width: 45%;
+  }
+
+  .list-block-1 {
+    width: 90%;
+  }
+
+  .list-block-2 {
+    width: 95%;
+  }
+
+  .img {
+    width: 100%;
+  }
+
+  .image {
+    width: 100%;
+  }
+
+  .title {
+    width: 100%;
+  }
+
+  .title-item {
+    width: 45%;
+    height: 25%;
+  }
+}
+
+@media (max-width: 600px) {
+  /*螢幕寬度小於 360px, 套用這個區塊的 css*/
+  .menu {
+    flex-wrap: wrap;
+  }
+  .desktop-menu-left {
+    display: grid;
+    align-content: center;
+  }
+  .desktop-menu-right {
+    display: none;
+  }
+  .mobile-menu {
+    display: block;
+  }
+  .promotion {
+    width: 90%;
+  }
+  .list-block-1 {
+    width: 90%;
+  }
+
+  .list-block-2 {
+    width: 95%;
+  }
+
+  .img {
+    width: 100%;
+  }
+
+  .image {
+    width: 100%;
+  }
+
+  .title {
+    width: 90%;
+  }
+
+  .title-item {
+    width: 90%;
+    height: 13%;
+  }
+}
