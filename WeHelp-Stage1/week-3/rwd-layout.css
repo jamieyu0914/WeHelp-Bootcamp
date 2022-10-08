@@ -106,9 +106,8 @@ html {
   position: relative;
   z-index: 999;
   background-color: rgb(204, 224, 240);
-  padding-bottom: 30px;
-  padding-top: 30px;
-  }
+  padding-block-end: 30px;
+  padding-inline-start: 30px;
 }
 
 .desktop-menu {
