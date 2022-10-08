@@ -98,15 +98,17 @@ html {
   background-color: rgb(204, 224, 240);
 }
 .title {
-  justify-content: center; /*水平置中*/
+  justify-content: center;
   align-items: center;
   text-align: center;
   width: 100%;
-  min-height: 45px;
+  max-height: 25px;
   position: relative;
   z-index: 999;
   background-color: rgb(204, 224, 240);
-  padding-block: 20px;
+  padding-bottom: 30px;
+  padding-top: 30px;
+  }
 }
 
 .desktop-menu {
