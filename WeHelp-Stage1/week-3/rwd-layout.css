@@ -80,9 +80,11 @@ html {
   display: flex;
   flex-wrap: wrap;
   flex: auto;
-  min-width: 280px;
   align-self: flex-start;
   vertical-align: bottom;
+  padding-bottom: 56%;
+  width: 100%;
+  position: relative;
 }
 .title-item {
   display: flex;
@@ -96,12 +98,15 @@ html {
   background-color: rgb(204, 224, 240);
 }
 .title {
-  margin: 10px;
   justify-content: center; /*水平置中*/
   align-items: center;
-  vertical-align: top;
   text-align: center;
   width: 100%;
+  min-height: 45px;
+  position: relative;
+  z-index: 999;
+  background-color: rgb(204, 224, 240);
+  padding-block: 20px;
 }
 
 .desktop-menu {
@@ -111,6 +116,9 @@ html {
 
 .image {
   width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
 }
 
 @media (max-width: 1200px) {
@@ -183,11 +191,11 @@ html {
   }
 
   .title {
-    width: 90%;
+    width: 100%;
   }
 
   .title-item {
-    width: 90%;
+    width: 100%;
     height: 13%;
   }
 }
