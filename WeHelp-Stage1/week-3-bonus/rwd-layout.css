@@ -1,0 +1,219 @@
+html {
+  font-size: 125%;
+}
+.menu {
+  display: flex;
+  justify-content: center;
+  justify-items: center;
+}
+.desktop-menu-left {
+  display: grid;
+  text-align: center;
+  justify-content: center; /*水平置中*/
+  align-items: center;
+}
+.desktop-menu-right {
+  display: flex;
+  justify-content: flex-end; /*水平對齊靠右*/
+  flex: auto;
+}
+.item {
+  flex: none; /*固定配置*/
+  margin: 10px;
+  text-align: center;
+}
+.mobile-menu {
+  justify-content: flex-end; /*水平對齊靠右*/
+  flex: auto;
+  display: none;
+}
+.mobile-menu-icon {
+  float: right;
+  display: flex;
+  align-items: center;
+}
+.headline {
+  background-color: rgb(204, 224, 240);
+  display: flex;
+  justify-content: center; /*水平置中*/
+  align-items: center;
+  height: 300px;
+}
+.welcome {
+  font-size: 2em;
+  text-align: center;
+}
+.list {
+  display: flex;
+  justify-content: center; /*水平置中*/
+}
+.list-2 {
+  display: flex;
+  justify-content: center; /*水平置中*/
+}
+.list-block-1 {
+  display: flex;
+  justify-content: center; /*水平置中*/
+  align-items: center;
+  flex-wrap: wrap;
+  width: 1200px;
+}
+.list-block-2 {
+  display: flex;
+  justify-content: center; /*水平置中*/
+  align-items: center;
+  flex-wrap: wrap;
+  width: 1200px;
+}
+.promotion {
+  display: flex;
+  flex-wrap: wrap;
+  flex: auto;
+  width: 280px;
+  height: 50px;
+  margin: 10px;
+  display: flex;
+  align-items: center;
+  background-color: rgb(204, 224, 240);
+}
+.img {
+  display: flex;
+  flex-wrap: wrap;
+  flex: auto;
+  align-self: flex-start;
+  vertical-align: bottom;
+  padding-bottom: 56%;
+  width: 100%;
+  position: relative;
+}
+.title-item {
+  display: inline-block;
+  flex-wrap: wrap;
+  width: 280px;
+  margin: 10px;
+  justify-content: center; /*水平置中*/
+  align-items: center;
+  vertical-align: top;
+}
+.title {
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  width: 100%;
+  max-height: 25px;
+  position: relative;
+  z-index: 999;
+  background-color: rgb(204, 224, 240);
+  padding-block-end: 30px;
+  padding-block-start: 30px;
+}
+
+.desktop-menu {
+  text-align: center;
+  display: block;
+}
+
+.image {
+  width: 100%;
+  height: 20vh;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.loadmore {
+  display: flex;
+  justify-content: center; /*水平置中*/
+  align-items: center;
+  position: relative;
+  z-index: 100;
+}
+
+button {
+  font-size: 20px;
+}
+
+@media (max-width: 1200px) {
+  /* 螢幕寬度小於 1200px, 套用這個區塊的 css*/
+  .menu {
+    flex-wrap: wrap;
+  }
+  .promotion {
+    width: 45%;
+  }
+
+  .list-block-1 {
+    width: 90%;
+  }
+
+  .list-block-2 {
+    width: 95%;
+  }
+
+  .img {
+    width: 100%;
+  }
+
+  .image {
+    width: 100%;
+    min-width: 30vw;
+    height: 30vw;
+    max-height: 50vh;
+  }
+
+  .title {
+    width: 100%;
+  }
+
+  .title-item {
+    width: 42.5vw;
+    height: 35.5vw;
+  }
+}
+
+@media (max-width: 600px) {
+  /*螢幕寬度小於 360px, 套用這個區塊的 css*/
+  .menu {
+    flex-wrap: wrap;
+  }
+  .desktop-menu-left {
+    display: grid;
+    align-content: center;
+  }
+  .desktop-menu-right {
+    display: none;
+  }
+  .mobile-menu {
+    display: block;
+  }
+  .promotion {
+    width: 90%;
+  }
+  .list-block-1 {
+    width: 90%;
+  }
+
+  .list-block-2 {
+    width: 95%;
+  }
+
+  .img {
+    width: 100%;
+  }
+
+  .image {
+    width: 90vw;
+    height: 55vw;
+  }
+
+  .title {
+    width: 90vw;
+  }
+
+  .title-item {
+    width: 90vw;
+    height: 45vh;
+    min-width: 70vw;
+    max-height: 70vw;
+  }
+}
