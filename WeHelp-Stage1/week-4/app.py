@@ -59,7 +59,7 @@ def member():
 
 @app.route("/signout")
 def signout():
-    login = "已登出"
+    login = "未登入"
     session["login"]=login      
     return render_template("index.html")
 
