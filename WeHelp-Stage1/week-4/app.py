@@ -1,3 +1,4 @@
+from ast import Num
 from crypt import methods
 from email import message
 import logging
@@ -27,24 +28,20 @@ def sign():
     userpassword = str(userpassword)
     if(username == ""):
         message="請輸入帳號、密碼"
-        session["message"]=message
         return render_template("error.html", message=message) 
     elif(userpassword == ""):
         message="請輸入帳號、密碼"
-        session["message"]=message
         return  render_template("error.html", message=message) 
     elif(username != "test"):
         message="帳號、或密碼輸入錯誤"
-        session["message"]=message
         return  render_template("error.html", message=message) 
     elif(userpassword != "test"):
         message="帳號、或密碼輸入錯誤"
-        session["message"]=message
         return  render_template("error.html", message=message) 
     else:
         login = "已登入"
         session["login"]=login      
-        return render_template("member.html") 
+        return render_template("member.html")    
 
 @app.route("/error")
 def error():
@@ -63,17 +60,33 @@ def signout():
     session["login"]=login      
     return render_template("index.html")
 
-@app.route("/calculate", methods=["GET"])
-def calculate():
-    Number = request.args.get("integer","")
-    Number = str(Number)
-    if(Number==""):
-        result="請輸入正整數"
-        return render_template("result.html", data=str(result))    
-    result=0
-    for n in range(1, int(Number)+1):
-        result=n*n
-    return render_template("result.html", data=str(result))    
+@app.route('/square/')
+@app.route("/square/<integer>", methods=["GET"])
+def square(integer=None):
+        Number = request.args.get("integer","")
+        Number = str(Number)
+        result = "請輸入正整數"
+        if(Number==""):
+            Numbers = str(integer)
+            if(Numbers=='None'):
+                print("1111111111111")
+                return render_template("square.html", data="請輸入正整數")      
+            if(Numbers!=""):
+                print(type(Numbers))
+                print("222222222222")   
+                result=0
+                for n in range(1, int(Numbers)+1):
+                    result=n*n
+                return render_template("square.html", data=str(result))
+            
+            return render_template("square.html", data="請輸入正整數")
+                
+            
+        for n in range(1, int(Number)+1):
+            result=n*n
+        return render_template("square.html", data=str(result))
+    
+
 
 
 
