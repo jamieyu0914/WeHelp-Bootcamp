@@ -64,11 +64,14 @@ def signout():
 @app.route("/square/<integer>", methods=["GET"])
 def square(integer=None):
         Number = request.args.get("integer","")
+        # print(type(Number))
+        # print(Number)
         Number = str(Number)
         result = "請輸入正整數"
         if(Number==""):
             Numbers = str(integer)
             if(Numbers=='None'):
+                #print(type(Numbers))
                 #print("Line_1111111111111")
                 return render_template("square.html", data="請輸入正整數")      
             if(Numbers!=""):
@@ -78,8 +81,6 @@ def square(integer=None):
                 for n in range(1, int(Numbers)+1):
                     result=n*n
                 return render_template("square.html", data=str(result))
-            
-            return render_template("square.html", data="請輸入正整數")
                 
             
         for n in range(1, int(Number)+1):
