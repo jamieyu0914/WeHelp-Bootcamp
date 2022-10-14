@@ -69,11 +69,11 @@ def square(integer=None):
         if(Number==""):
             Numbers = str(integer)
             if(Numbers=='None'):
-                print("1111111111111")
+                #print("Line_1111111111111")
                 return render_template("square.html", data="請輸入正整數")      
             if(Numbers!=""):
-                print(type(Numbers))
-                print("222222222222")   
+                #print(type(Numbers))
+                #print("Line-222222222222")   
                 result=0
                 for n in range(1, int(Numbers)+1):
                     result=n*n
