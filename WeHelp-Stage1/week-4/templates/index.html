@@ -24,12 +24,19 @@
 
     <div class="function">
       <h3>計算正整數的平方</h3>
-      <form action="/square/" method="GET">
-        正整數 <input type="number" name="integer" /><br />
-        <br />
-        <button>計算</button>
-      </form>
+      正整數 <input type="number" name="integer" id="integer" /><br />
+      <button onclick="go()">計算</button>
       <br />
     </div>
   </body>
+  <script>
+    function go() {
+      const inputnumber = document.getElementById("integer");
+      const nums = inputnumber.value;
+      const integer = nums;
+      result = "http://127.0.0.1:3000/square/" + integer;
+      console.log(integer);
+      location.assign(result);
+    }
+  </script>
 </html>
