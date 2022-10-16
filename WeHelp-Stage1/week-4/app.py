@@ -7,8 +7,8 @@ from flask import session
 app=Flask(
     __name__,
     static_folder="public",
-    static_url_path="/")
-app.secret_key="any string but secret" 
+    static_url_path="/") #建立 Application 物件
+app.secret_key="any string but secret" #設定 Session 的密鑰
 
 @app.route("/")
 def index():
