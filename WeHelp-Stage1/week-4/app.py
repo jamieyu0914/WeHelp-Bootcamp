@@ -47,14 +47,6 @@ def signout():
     login = "未登入"
     session["login"]=login      
     return redirect("/") #導向首頁
-
-@app.route('/square/', methods=["GET"]) 
-def square():
-    Number = request.args.get("integer","")
-    Number = str(Number)
-    if (Number==""): 
-        return render_template("square.html", integer="請輸入正整數") #欄位未輸入 渲染結果頁    
-    return redirect(f"/square/{Number}") #導向/square/<integer>計算
     
 @app.route("/square/<integer>", methods=["GET"])
 def caculate(integer=None):
