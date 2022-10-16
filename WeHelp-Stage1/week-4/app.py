@@ -1,14 +1,14 @@
-from flask import Flask # 載入 Flask
-from flask import request # 載入 request 物件
-from flask import redirect # 載入 redirect 函式
-from flask import render_template # 載入 render_template 函式
-from flask import session # 載入 session
+from flask import Flask 
+from flask import request 
+from flask import redirect 
+from flask import render_template 
+from flask import session 
 
 app=Flask(
     __name__,
     static_folder="public",
-    static_url_path="/") #建立 Application 物件
-app.secret_key="any string but secret" #設定 Session 的密鑰
+    static_url_path="/")
+app.secret_key="any string but secret" 
 
 @app.route("/")
 def index():
@@ -21,13 +21,13 @@ def signin():
     userpassword = request.form["password"]
     userpassword = str(userpassword)
     if(username == "" or userpassword == ""): #驗證失敗
-        return redirect('/error?message=請輸入帳號、密碼') #轉至/error
+        return redirect('/error?message=請輸入帳號、密碼') #導向/error
     elif(username != "test" or userpassword != "test"):
-        return  redirect('/error?message=帳號、或密碼輸入錯誤') #轉至/error
+        return  redirect('/error?message=帳號、或密碼輸入錯誤') #導向/error
     else: #驗證成功
         login = "已登入"
         session["login"]=login     
-        return redirect("/member") #轉至/member
+        return redirect("/member") #導向/member
 
 @app.route("/error", methods=["GET"])
 def error():
@@ -54,10 +54,8 @@ def square():
     Number = str(Number)
     if (Number==""): 
         return render_template("square.html", integer="請輸入正整數") #欄位未輸入 渲染結果頁    
-    return redirect(f"/square/{Number}") #轉至/square/<integer>
+    return redirect(f"/square/{Number}") #導向/square/<integer>計算
     
-
-
 @app.route("/square/<integer>", methods=["GET"])
 def caculate(integer=None):
         Number = request.args.get("integer","")
@@ -68,15 +66,14 @@ def caculate(integer=None):
                 return render_template("square.html", integer="請輸入正整數") #網址未輸入 渲染結果頁       
             elif(Numbers!=""): 
                 result=0
-                for n in range(1, int(mbers)+1):
+                for n in range(1, int(Numbers)+1):
                     result=n*n #計算平方 n**2
                 return render_template("square.html", integer=str(result)) #網址輸入 渲染結果頁  
         result=0;   
         for n in range(1, int(Number)+1):
             result=n*n #計算平方 n**2
         return render_template("square.html", integer=str(result)) #欄位輸入 渲染結果頁
-    
-
 
 app.run(port=3000)
+
 
