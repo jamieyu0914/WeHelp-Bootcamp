@@ -1,5 +1,5 @@
 ### 要求三:SQL CRUD
-
+<br />
 
 
 ● 使用 INSERT 指令新增一筆資料到 member 資料表中，這筆資料的 username 和 password 欄位必須是 test。接著繼續新增至少 4 筆隨意的資料。<br />
@@ -70,7 +70,7 @@ UPDATE member SET name='test2' WHERE username='test';
 <hr />
 
 ### 要求四:SQL Aggregate Functions
-
+<br />
 
 
 ● 取得 member 資料表中，總共有幾筆資料 ( 幾位會員 )。<br />
