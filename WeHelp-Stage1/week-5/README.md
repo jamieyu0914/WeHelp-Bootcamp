@@ -14,7 +14,6 @@
 
 ● 使用 SELECT 指令取得所有在 member 資料表中的會員資料，並按照 time 欄位，由近到遠排序。<br />
 <img width="549" alt="截圖 2022-10-19 上午4 35 05" src="https://user-images.githubusercontent.com/43780809/196539833-3e417672-97fb-432d-bba2-65cbba0d8ab2.png">
-<img width="243" alt="image" src="https://user-images.githubusercontent.com/43780809/196542909-d6c136b9-2553-40b1-9038-d670baccdaa5.png">
 
 
 
