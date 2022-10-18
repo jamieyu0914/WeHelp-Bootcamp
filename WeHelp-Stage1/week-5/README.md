@@ -21,7 +21,7 @@ INSERT INTO member (id, name, username, password, follower_count)
 
 ● 使用 SELECT 指令取得所有在 member 資料表中的會員資料。<br />
 ```mysql
-SELECT * FROM member
+SELECT * FROM member;
 ```
 <img width="549" alt="截圖 2022-10-19 上午4 33 59" src="https://user-images.githubusercontent.com/43780809/196538305-e2100b49-ae49-4615-aaa3-fad07cbaaf14.png">
 
