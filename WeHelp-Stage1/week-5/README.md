@@ -97,3 +97,31 @@ SELECT AVG(follower_count) FROM member;
 <img width="251" alt="截圖 2022-10-19 上午4 45 38" src="https://user-images.githubusercontent.com/43780809/196541550-9f74a296-c7fe-4a77-afd0-0cfa5c075cf3.png">
 <br />
 
+
+<hr />
+
+
+### 要求五:SQL JOIN (Optional)
+<br />
+
+
+● 使用 SELECT 搭配 JOIN 語法，取得所有留言，結果須包含留言者會員的姓名。
+```mysql
+SELECT message.id, message.member_id, member.name, message.content, message.like_count, message.time FROM member INNER JOIN message ON message.member_id=member.id order by message.time ASC;
+```
+<img width="1399" alt="截圖 2022-10-20 下午4 31 47" src="https://user-images.githubusercontent.com/43780809/196898328-26c7f4bc-7939-4332-a5b4-131db8a152d6.png">
+
+
+● 使用 SELECT 搭配 JOIN 語法，取得 member 資料表中欄位 username 是 test 的所有留言，資料中須包含留言者會員的姓名。
+```mysql
+SELECT message.id, message.member_id, member.name, member.username, message.content, message.like_count, message.time FROM member INNER JOIN message ON message.member_id=member.id WHERE member.username = 'test' order by message.time ASC;
+```
+<img width="1470" alt="截圖 2022-10-20 下午4 33 54" src="https://user-images.githubusercontent.com/43780809/196898700-b1d92eab-bc73-4a0e-b981-a95c8a11a602.png">
+
+
+● 使用 SELECT、SQL Aggregate Functions 搭配 JOIN 語法，取得 member 資料表中欄位 username 是 test 的所有留言平均按讚數。
+```mysql
+SELECT member.username, AVG(message.like_count) FROM member INNER JOIN message ON message.member_id=member.id WHERE member.username = 'test';
+```
+<img width="1081" alt="截圖 2022-10-20 下午4 35 33" src="https://user-images.githubusercontent.com/43780809/196899102-434bfef9-f541-4999-bd57-17337ecbb855.png">
+
