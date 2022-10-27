@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="/layout.css" />
+    <title>會員頁</title>
+  </head>
+  <body>
+    <header>歡迎光臨，這是會員頁</header>
+    <div class="function">
+      <br />
+      {{name}}，歡迎登入系統
+      <br />
+      <br />
+      <a href="/signout">登出系統</a>
+      <br />
+      <br />
+    </div>
+
+    <hr />
+
+    <div class="function">
+      <h3>快來留言吧</h3>
+      <form action="/message" method="POST">
+        內容 <input type="text" name="content" /><br />
+        <br />
+        <button>送出</button>
+      </form>
+      <br />
+    </div>
+
+    <hr />
+
+    <div class="function">
+      <br />
+      <b>{{username[0]}}</b>{{content[0]}}<br />
+      <b>{{username[1]}}</b>{{content[1]}}<br />
+      <b>{{username[2]}}</b>{{content[2]}}<br />
+      <b>{{username[3]}}</b>{{content[3]}}<br />
+      <b>{{username[4]}}</b>{{content[4]}}<br />
+      <b>{{username[5]}}</b>{{content[5]}}<br />
+      <b>{{username[6]}}</b>{{content[6]}}<br />
+      <b>{{username[7]}}</b>{{content[7]}}<br />
+      <b>{{username[8]}}</b>{{content[8]}}<br />
+      <b>{{username[9]}}</b>{{content[9]}}<br />
+      <b>{{username[10]}}</b>{{content[10]}}<br />
+      <b>{{username[11]}}</b>{{content[11]}}<br />
+      <b>{{username[12]}}</b>{{content[12]}}<br />
+      <b>{{username[13]}}</b>{{content[13]}}<br />
+      <b>{{username[14]}}</b>{{content[14]}}<br />
+      <br />
+    </div>
+  </body>
+</html>
