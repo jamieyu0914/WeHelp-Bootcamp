@@ -5,7 +5,7 @@ from flask import render_template
 from flask import session 
 import mysql.connector
 
-mydb = mysql.connector.connect(user='root', password='********',
+mydb = mysql.connector.connect(user='root', password='m6ao3ao3',
                               host='localhost',
                               database='member') #資料庫連線
 mycursor = mydb.cursor()     
@@ -23,14 +23,13 @@ def index():
 @app.route("/signup", methods=["POST"])
 def signup():
     name = request.form["name"]
-    name = str(name)
     username = request.form["username"]
-    username = str(username)
     password = request.form["password"]
-    password = str(password)
     if(name =="" or username == "" or password == ""): #驗證失敗
-        return redirect('/error?message=請輸入帳號、密碼') #導向/error   
-    mycursor.execute("SELECT username FROM member_list WHERE username='"+username+"'") #SQL指令 檢查是否有重複的帳號 (username)
+        return redirect('/error?message=請輸入帳號、密碼') #導向/error 
+    sql = "SELECT username FROM member_list WHERE username=%s" #SQL指令 檢查是否有重複的帳號 (username)
+    val = (username,)
+    mycursor.execute(sql, val)
     myresult = mycursor.fetchall()
     x=""
     for x in myresult:
@@ -52,12 +51,12 @@ def signup():
 @app.route("/signin", methods=["POST"])
 def signin():
     username = request.form["username"]
-    username = str(username)
     password = request.form["password"]
-    password = str(password)
     if(username == "" or password == ""): #驗證失敗
         return redirect('/error?message=請輸入帳號、密碼') #導向/error
-    mycursor.execute("SELECT * FROM member_list WHERE username='"+username+"' and password='"+password+"'") #SQL指令 是否有對應的帳號、密碼
+    sql = "SELECT * FROM member_list WHERE username=%s and password=%s" #SQL指令 是否有對應的帳號、密碼
+    val = (username, password)
+    mycursor.execute(sql, val) 
     myresult = mycursor.fetchall()
     x=""
     for x in myresult:
@@ -74,28 +73,17 @@ def signin():
 @app.route("/error", methods=["GET"])
 def error():
     message = request.args.get("message","")
-    return render_template("error.html", message=str(message)) #渲染失敗頁面  
+    return render_template("error.html", message=message) #渲染失敗頁面  
 
 @app.route("/member")
 def member():
     name = session["name"]
     login = session["login"]
-    if(login == "已註冊"):
-        mycursor.execute("SELECT member_list.name, message_list.content FROM member_list INNER JOIN message_list ON message_list.member_id=member_list.id ORDER BY message_list.time DESC;") #SQL指令 向資料庫取得所有留言內容
-        myresult = mycursor.fetchall()
-        x=""
-        current_username_array=[]
-        current_content_array=[]
-        for x in myresult:
-         username = x[0]+":"
-         content = x[1]
-         current_username_array.append(username)
-         current_content_array.append(content)
-        return render_template("member.html", name=str(name), content=str(x)) #渲染會員頁
-    elif(login != "已登入"):
+    if(login != "已登入"):
         return redirect("/") #導向首頁    
     else:
-        mycursor.execute("SELECT member_list.name, message_list.content FROM member_list INNER JOIN message_list ON message_list.member_id=member_list.id ORDER BY message_list.time DESC;") #SQL指令 向資料庫取得所有留言內容
+        sql = "SELECT member_list.name, message_list.content FROM member_list INNER JOIN message_list ON message_list.member_id=member_list.id ORDER BY message_list.time DESC;" #SQL指令 向資料庫取得所有留言內容
+        mycursor.execute(sql)
         myresult = mycursor.fetchall()
         x=""
         current_username_array=[]
@@ -105,7 +93,8 @@ def member():
          content = x[1]
          current_username_array.append(username)
          current_content_array.append(content)
-        return render_template("member.html", name=str(name), username=current_username_array, content=current_content_array) #渲染會員頁
+         print(current_username_array)
+        return render_template("member.html", name=name, username=current_username_array, content=current_content_array) #渲染會員頁
 
 @app.route("/signout")
 def signout():
@@ -120,7 +109,6 @@ def signout():
 @app.route("/message", methods=["POST"])
 def message():
     content = request.form["content"]
-    content = str(content)
     if(content == ""): #留言失敗
         return redirect('/error?message=請輸入內容') #導向/error
     userid=session["id"]
