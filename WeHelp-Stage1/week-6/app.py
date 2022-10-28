@@ -5,7 +5,7 @@ from flask import render_template
 from flask import session 
 import mysql.connector
 
-mydb = mysql.connector.connect(user='root', password='m6ao3ao3',
+mydb = mysql.connector.connect(user='root', password='******',
                               host='localhost',
                               database='member') #資料庫連線
 mycursor = mydb.cursor()     
