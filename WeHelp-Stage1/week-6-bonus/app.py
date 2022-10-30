@@ -14,7 +14,7 @@ try:
                                                   host='localhost',
                                                   database='member',
                                                   user='root',
-                                                  password='m6ao3ao3')
+                                                  password='******')
 
     print("Printing connection pool properties ")
     print("Connection Pool Name - ", connection_pool.pool_name)
