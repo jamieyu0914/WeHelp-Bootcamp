@@ -7,35 +7,15 @@ from mysql.connector import Error
 from mysql.connector import pooling
 
 
-try:
-    connection_pool = pooling.MySQLConnectionPool(pool_name="my_connection_pool",
-                                                  pool_size=5,
-                                                  pool_reset_session=True,
-                                                  host='localhost',
-                                                  database='member',
-                                                  user='root',
-                                                  password='******')
-
-    print("Printing connection pool properties ")
-    print("Connection Pool Name - ", connection_pool.pool_name)
-    print("Connection Pool Size - ", connection_pool.pool_size)
-
-    # Get connection object from a pool
-    connection_object = connection_pool.get_connection() #連線物件 commit時 需要使用
-
-    if connection_object.is_connected():
-        db_Info = connection_object.get_server_info()
-        print("Connected to MySQL database using connection pool ... MySQL Server version on ", db_Info)
-
-        cursor = connection_object.cursor()
+connection_pool = pooling.MySQLConnectionPool(pool_name="my_connection_pool",
+                                                pool_size=5,
+                                                pool_reset_session=True,
+                                                host='localhost',
+                                                database='member',
+                                                user='root',
+                                                password='m6ao3ao3')
 
 
-except Error as e:
-    print("Error while connecting to MySQL using Connection pool ", e)
- 
-
-
-  
 
 app=Flask(
     __name__,
@@ -56,11 +36,18 @@ def signup():
         return redirect('/error?message=請輸入帳號、密碼') #導向/error 
     sql = "SELECT username FROM member_list WHERE username=%s" #SQL指令 檢查是否有重複的帳號 (username)
     val = (username,)
+    # Get connection object from a pool
+    connection_object = connection_pool.get_connection() #連線物件 commit時 需要使用
+    cursor = connection_object.cursor()
+    print("MySQL connection is opened")
     cursor.execute(sql, val)
     myresult = cursor.fetchall()
     x=""
     for x in myresult:
         print(x)
+    cursor.close()
+    connection_object.close()
+    print("MySQL connection is closed")       
     if (x != ""):#註冊失敗
         return redirect('/error?message=帳號已經被註冊') #導向/error
     else:#註冊成功
@@ -69,10 +56,20 @@ def signup():
         session["login"]=login   
         sql = "INSERT INTO member_list (name, username, password) VALUES (%s, %s, %s)" #SQL指令 新增資料
         val = (name, username, password)
+        # Get connection object from a pool
+        connection_object = connection_pool.get_connection() #連線物件 commit時 需要使用
+        cursor = connection_object.cursor()
+        print("MySQL connection is opened")
         cursor.execute(sql, val)
         connection_object.commit()
+        cursor.close()
+        connection_object.close()
+        print("MySQL connection is closed")   
         print("新帳號註冊") 
         return redirect("/") #導向首頁
+
+   
+      
 
 
 @app.route("/signin", methods=["POST"])
@@ -83,11 +80,18 @@ def signin():
         return redirect('/error?message=請輸入帳號、密碼') #導向/error
     sql = "SELECT * FROM member_list WHERE username=%s and password=%s" #SQL指令 是否有對應的帳號、密碼
     val = (username, password)
+    # Get connection object from a pool
+    connection_object = connection_pool.get_connection() #連線物件 commit時 需要使用
+    cursor = connection_object.cursor()
+    print("MySQL connection is opened")
     cursor.execute(sql, val) 
     myresult = cursor.fetchall()
     x=""
     for x in myresult:
         print(x)
+    cursor.close()
+    connection_object.close()
+    print("MySQL connection is closed")     
     if (x == ""):#驗證失敗
         return redirect('/error?message=帳號或密碼輸入錯誤') #導向/error
     else: #驗證成功
@@ -110,6 +114,10 @@ def member():
         return redirect("/") #導向首頁    
     else:
         sql = "SELECT member_list.name, message_list.content FROM member_list INNER JOIN message_list ON message_list.member_id=member_list.id ORDER BY message_list.time DESC;" #SQL指令 向資料庫取得所有留言內容
+        # Get connection object from a pool
+        connection_object = connection_pool.get_connection() #連線物件 commit時 需要使用
+        cursor = connection_object.cursor()
+        print("MySQL connection is opened")
         cursor.execute(sql)
         myresult = cursor.fetchall()
         x=""
@@ -121,6 +129,9 @@ def member():
          current_username_array.append(username)
          current_content_array.append(content)
          print(current_username_array)
+        cursor.close()
+        connection_object.close()
+        print("MySQL connection is closed")  
         return render_template("member.html", name=name, username=current_username_array, content=current_content_array) #渲染會員頁
 
 @app.route("/signout")
@@ -141,11 +152,23 @@ def message():
     userid=session["id"]
     sql = "INSERT INTO message_list (member_id, content) VALUES (%s, %s)" #SQL指令 將留言內容紀錄到 message 資料表
     val = (userid, content)
+    # Get connection object from a pool
+    connection_object = connection_pool.get_connection() #連線物件 commit時 需要使用
+    cursor = connection_object.cursor()
+    print("MySQL connection is opened")
     cursor.execute(sql, val)
     connection_object.commit()
+    cursor.close()
+    connection_object.close()
+    print("MySQL connection is closed") 
     print("新留言內容") 
     return redirect("/member") #導向會員頁
 
+
+
 app.run(port=3000)
+
+
+
 
 
