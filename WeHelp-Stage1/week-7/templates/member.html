@@ -84,7 +84,7 @@
       const data = {
         name: newname,
       };
-      fetch(`/api/member?username=${username}`, {
+      fetch(`/api/member`, {
         method: "PATCH",
         body: JSON.stringify(data),
         headers: {
