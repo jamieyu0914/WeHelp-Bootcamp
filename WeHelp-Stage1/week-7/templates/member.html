@@ -77,14 +77,14 @@
 
       function addname(thename, theusername) {
         let answer = thename + "(" + theusername + ")";
-        var theresult = document.getElementById("usernameresult");
-        var _text = document.createTextNode(answer);
+        let theresult = document.getElementById("usernameresult");
+        let _text = document.createTextNode(answer);
         theresult.appendChild(_text);
       } // 填入 查詢會員姓名 結果欄位 成功 方法二
 
       function errorname() {
-        var theresult = document.getElementById("usernameresult");
-        var _text = document.createTextNode("查詢失敗");
+        let theresult = document.getElementById("usernameresult");
+        let _text = document.createTextNode("查詢失敗");
         theresult.appendChild(_text);
       } // 填入 查詢會員姓名 結果欄位 失敗
     }
@@ -114,14 +114,14 @@
       });
 
       function updatenamestate_ok(data) {
-        var theresult = document.getElementById("newusernameresult");
-        var content = document.createTextNode("更新成功");
+        let theresult = document.getElementById("newusernameresult");
+        let content = document.createTextNode("更新成功");
         theresult.appendChild(content);
       } // 填入更新會員姓名 結果欄位 成功
 
       function updatenamestate_error(data) {
-        var theresult = document.getElementById("newusernameresult");
-        var content = document.createTextNode("更新失敗");
+        let theresult = document.getElementById("newusernameresult");
+        let content = document.createTextNode("更新失敗");
         theresult.appendChild(content);
       } // 填入更新會員姓名 結果欄位 失敗
     }
