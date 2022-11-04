@@ -4,6 +4,7 @@ from flask import Response
 from flask import redirect 
 from flask import render_template 
 from flask import session
+from flask import jsonify
 from mysql.connector import Error
 from mysql.connector import pooling
 import json
@@ -15,7 +16,7 @@ connection_pool = pooling.MySQLConnectionPool(pool_name="my_connection_pool",
                                                 host='localhost',
                                                 database='member',
                                                 user='root',
-                                                password='******')
+                                                password='m6ao3ao3')
 
 
 
@@ -133,11 +134,7 @@ def apimember():
     username = request.args.get("username","")
     login = session["login"]
     if(username == ""):
-        data = {
-            "data":None
-            }       
-        print(data)
-        return Response(json.dumps((data),ensure_ascii=False))
+        return jsonify({"data":None})
 
     if(login != "已登入"):
         return redirect("/") #導向首頁    
@@ -155,17 +152,8 @@ def apimember():
             for x in myresult:
                 userid = x[0]
                 name = x[1]
-                username = x[2]
-                print(x)
-            data = {
-                "data":{
-                    "id":userid,
-                    "name":name,
-                    "username":username
-                    }
-                }      
-            print(data)
-            print(data["data"]["name"])
+                username = x[2]    
+            print(name)
         except Error as e:
             print("Error while connecting to MySQL using Connection pool ", e)
         finally:
@@ -173,7 +161,13 @@ def apimember():
             cursor.close()
             connection_object.close()
         print("MySQL connection is closed")     
-        return Response(json.dumps((data),ensure_ascii=False))
+        return jsonify({
+                "data":{
+                    "id":userid,
+                    "name":name,
+                    "username":username
+                    }
+                }     )
 
 @app.route('/api/member', methods=['PATCH'])
 def patchmember():
@@ -185,9 +179,7 @@ def patchmember():
         print(username)
         
         if(login != "已登入" or username == ""):
-            data = {"error":True}
-            print(data)
-            return Response(json.dumps((data),ensure_ascii=False))
+            return jsonify({"error":True})
         else:
             sql = "UPDATE member_list  SET name = %s WHERE id = %s" #SQL指令 更新對應的姓名欄位
             val = (username, userid )
@@ -201,16 +193,13 @@ def patchmember():
                 session["username"] = username
             except Error as e:
                 print("Error while connecting to MySQL using Connection pool ", e)
-                data = {"error":True}
-                return Response(json.dumps((data),ensure_ascii=False)) 
+                return jsonify({"error":True})
             finally:
                 # closing database connection.    
                 cursor.close()
                 connection_object.close()
             print("MySQL connection is closed")
-            data = {"ok":True}
-            print(data)     
-            return Response(json.dumps((data),ensure_ascii=False))         
+            return jsonify({"ok":True})       
 
 @app.route("/signout")
 def signout():
