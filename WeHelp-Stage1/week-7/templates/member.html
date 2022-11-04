@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="/layout.css" />
+    <title>會員頁</title>
+  </head>
+  <body>
+    <header>歡迎光臨，這是會員頁</header>
+    <div class="function">
+      <br />
+      {{name}}，歡迎登入系統
+      <br />
+      <br />
+      <a href="/signout">登出系統</a>
+      <br />
+      <br />
+    </div>
+
+    <hr />
+
+    <div class="function">
+      <h3>查詢會員姓名</h3>
+      <input type="text" name="username" id="username" />
+      <button onclick="getmore()">查詢</button>
+    </div>
+    <br />
+
+    <!--查詢會員姓名 結果欄位 預留處-->
+    <div class="function" id="usernameresult">
+      <br />
+    </div>
+
+    <hr />
+
+    <div class="function">
+      <h3>更新我的姓名</h3>
+      <input type="text" name="newname" id="newname" />
+      <button onclick="getnew()">更新</button>
+      <br />
+    </div>
+
+    <!--更新會員姓名 結果欄位 預留處-->
+    <div class="function" id="newusernameresult">
+      <br />
+    </div>
+
+    <br />
+  </body>
+  <script>
+    function getmore() {
+      const username = document.getElementById("username").value; //查詢會員姓名 的輸入值
+      fetch(`/api/member?username=${username}`)
+        .then(function (response) {
+          return response.json();
+        })
+        .then(function (data) {
+          console.log(data);
+          let thename = data["data"]["name"]; //會員姓名
+          let theusername = data["data"]["username"]; //會員帳號
+          console.log(thename);
+          console.log(theusername);
+          addname(thename, theusername);
+        });
+
+      // function addname(thename, theusername) {
+      //   const theresult = document.getElementById("usernameresult");
+      //   let html = thename + "(" + theusername + ")";
+      //   theresult.insertAdjacentHTML("afterbegin", html);
+      // } // 填入 查詢會員姓名 結果欄位 方法一
+
+      function addname(thename, theusername) {
+        let answer = thename + "(" + theusername + ")";
+        var theresult = document.getElementById("usernameresult");
+        var _text = document.createTextNode(answer);
+        theresult.appendChild(_text);
+      } // 填入 查詢會員姓名 結果欄位 方法二
+    }
+
+    function getnew() {
+      const newname = document.getElementById("newname").value; //更新會員姓名 的輸入值
+      const data = {
+        name: newname,
+      };
+      fetch(`/api/member?username=${username}`, {
+        method: "PATCH",
+        body: JSON.stringify(data),
+        headers: {
+          "Content-type": "application/json",
+        },
+      }).then(function (response) {
+        response.json().then(function (data) {
+          console.log(data);
+          if (data["ok"] == true) {
+            console.log(data["ok"]);
+            updatenamestate_ok(data);
+          } else {
+            console.log(data["error"]);
+            updatenamestate_error(data);
+          }
+        });
+      });
+
+      function updatenamestate_ok(data) {
+        var theresult = document.getElementById("newusernameresult");
+        var content = document.createTextNode("更新成功");
+        theresult.appendChild(content);
+      } // 填入更新會員姓名 結果欄位 成功
+
+      function updatenamestate_error(data) {
+        var theresult = document.getElementById("newusernameresult");
+        var content = document.createTextNode("更新失敗");
+        theresult.appendChild(content);
+      } // 填入更新會員姓名 結果欄位 失敗
+    }
+  </script>
+</html>
