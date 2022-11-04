@@ -58,25 +58,35 @@
         })
         .then(function (data) {
           console.log(data);
-          let thename = data["data"]["name"]; //會員姓名
-          let theusername = data["data"]["username"]; //會員帳號
-          console.log(thename);
-          console.log(theusername);
-          addname(thename, theusername);
+          if (data["data"] != null) {
+            let thename = data["data"]["name"]; //會員姓名
+            let theusername = data["data"]["username"]; //會員帳號
+            console.log(thename);
+            console.log(theusername);
+            addname(thename, theusername);
+          } else {
+            errorname();
+          }
         });
 
       // function addname(thename, theusername) {
       //   const theresult = document.getElementById("usernameresult");
       //   let html = thename + "(" + theusername + ")";
       //   theresult.insertAdjacentHTML("afterbegin", html);
-      // } // 填入 查詢會員姓名 結果欄位 方法一
+      // } // 填入 查詢會員姓名 結果欄位 成功 方法一
 
       function addname(thename, theusername) {
         let answer = thename + "(" + theusername + ")";
         var theresult = document.getElementById("usernameresult");
         var _text = document.createTextNode(answer);
         theresult.appendChild(_text);
-      } // 填入 查詢會員姓名 結果欄位 方法二
+      } // 填入 查詢會員姓名 結果欄位 成功 方法二
+
+      function errorname() {
+        var theresult = document.getElementById("usernameresult");
+        var _text = document.createTextNode("查詢失敗");
+        theresult.appendChild(_text);
+      } // 填入 查詢會員姓名 結果欄位 失敗
     }
 
     function getnew() {
