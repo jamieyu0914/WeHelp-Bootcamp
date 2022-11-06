@@ -16,7 +16,7 @@ connection_pool = pooling.MySQLConnectionPool(pool_name="my_connection_pool",
                                                 host='localhost',
                                                 database='member',
                                                 user='root',
-                                                password='******')
+                                                password='m6ao3ao3')
 
 
 
