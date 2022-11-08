@@ -13,3 +13,7 @@
 - 資料來源：https://developer.mozilla.org/zh-TW/docs/Web/HTTP/CORS
 
 - AWS 相關內容：https://docs.aws.amazon.com/zh_tw/AmazonS3/latest/userguide/cors.html
+
+<hr >
+
+2. 我們可以在自己的網頁中，使用 fetch() 或是 XMLHttpRequest 連結到 https://www.google.com/ 並取得回應嗎?
