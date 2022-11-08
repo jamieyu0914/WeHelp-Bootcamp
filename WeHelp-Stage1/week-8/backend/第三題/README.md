@@ -64,4 +64,4 @@ Access to fetch at *** from origin *** has been blocked by CORS policy: No 'Acce
 
 ### 4. 如何開放我們自己開發的 API，讓別的網站透過 fecth() 或是 XMLHttpRequest 連結，達到如同第 3 點的可能性。
 
-自己開發的 API 最終回應(return)的內容應該符合前端規格的 text 或 json 格式資料，才能達到如同第 3 點的可能性。
+自己開發的 API 最終回應(return)的物件內容應該符合前端規格的 text 或 json 格式資料，才能達到如同第 3 點的可能性。
