@@ -12,7 +12,7 @@
 
 - [AWS 使用跨來源資源分享 (CORS)](https://docs.aws.amazon.com/zh_tw/AmazonS3/latest/userguide/cors.html)
 - [教學 CORS 是什麼? 如何設定 CORS?](https://shubo.io/what-is-cors/#什麼是-cors-cross-origin-resource-sharing)
-- [跨來源資源共用（CORS）]https://developer.mozilla.org/zh-TW/docs/Web/HTTP/CORS
+- [跨來源資源共用（CORS](https://developer.mozilla.org/zh-TW/docs/Web/HTTP/CORS)
 
 <hr >
 
