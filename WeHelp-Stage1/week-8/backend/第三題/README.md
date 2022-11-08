@@ -20,7 +20,7 @@ Access to fetch at *** from origin *** has been blocked by CORS policy: No 'Acce
 
 > 相關關鍵字：
 
-#### 跨來源 HTTP 請求, XMLHttpRequest, Fetch, 同源政策(same-origin policy)
+#### 跨來源 HTTP 請求, XMLHttpRequest, Fetch, 同源政策(same-origin policy), AJAX, Promise
 
 > 參考資源：
 
