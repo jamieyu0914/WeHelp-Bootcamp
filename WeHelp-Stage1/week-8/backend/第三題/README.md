@@ -6,7 +6,7 @@
 
 需要注意的是，用 JavaScript 透過 fetch API 或 XMLHttpRequest 等方式發起 request，必須遵守同源政策 (same-origin policy)。
 
-什麼是同源政策呢？簡單地說，用 JavaScript 存取資源時，如果是同源的情況下，存取不會受到限制；然而，在同源政策下，非同源的 request 則會因為安全性的考量受到限制。瀏覽器會強制你遵守 CORS (Cross-Origin Resource Sharing，跨域資源存取) 的規範，否則瀏覽器會讓 request 失敗。
+什麼是同源政策呢？就是使用 JavaScript 存取資源時，如果是同源的情況下，存取不會受到限制；然而，在同源政策下，非同源的 request 則會因為安全性的考量受到限制。瀏覽器會強制你遵守 CORS (Cross-Origin Resource Sharing，跨域資源存取) 的規範，否則瀏覽器會讓 request 失敗。
 
 而所謂的同源，必須滿足以下三個條件：相同的通訊協定 (protocol)，即 http/https ; 相同的網域 (domain) ; 相同的通訊埠 (port)。
 
