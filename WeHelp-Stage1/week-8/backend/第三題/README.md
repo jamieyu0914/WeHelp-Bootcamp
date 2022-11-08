@@ -38,6 +38,67 @@ Access to fetch at *** from origin *** has been blocked by CORS policy: No 'Acce
 
 可以，請參考第一階段 week-3 的 index.html
 
+```html
+<script>
+  // 利用 fetch 進行連線並取得資料{
+  fetch(
+    "https://padax.github.io/taipei-day-trip-resources/taipei-attractions-assignment.json"
+  )
+    .then(function (response) {
+      return response.json();
+    })
+    .then(function (data) {
+      let posts = data["result"]["results"];
+      let array = [];
+      for (i = 0; i < posts.length; i++) {
+        let post = posts[i];
+        let text = posts[i]["stitle"];
+        let names = "name" + i;
+        console.log(names);
+        addtitle(text, names);
+        console.log(posts[i]["stitle"]); //景點名稱
+
+        let file = post["file"];
+        if (file.search(".jpg")) {
+          //尋找副檔名為.jpg結尾的連結
+          a = post["file"].split("jpg")[0]; //分隔後將第一張圖片連結存入 a 陣列
+          firstfile = a + "jpg";
+        }
+        if (a.search(".JPG") > 0) {
+          //尋找尚有多個副檔名為.JPG結尾的連結
+          b = post["file"].split(".JPG")[0]; //分隔後將第一張圖片連結存入 b 陣列
+          firstfile = b + ".JPG";
+        }
+        let link = firstfile;
+        let tags = "photo" + i;
+        console.log(link);
+        console.log(tags);
+        addphoto(link, tags);
+      }
+      function addtitle(text, names) {
+        var theviewtitle = document.getElementById(names);
+        var _text = document.createTextNode(text);
+        theviewtitle.appendChild(_text);
+      }
+
+      function addphoto(link, tags) {
+        var bigImg = document.getElementById(tags);
+        bigImg.src = link;
+        console.log(bigImg);
+
+        // var theviewphoto = document.getElementById(tags);
+        // theviewphoto.src = link;
+        // console.log(theviewphoto.src);
+      }
+
+      datalist = [str(post["stitle"]), str(firstfile)];
+      array.append(datalist);
+
+      // console.log(data);
+    });
+</script>
+```
+
 <hr >
 
 4. 如何開放我們自己開發的 API，讓別的網站透過 fecth() 或是 XMLHttpRequest 連結，達到如同第 3 點的可能性。
