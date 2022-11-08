@@ -11,7 +11,11 @@
 而所謂的同源，必須滿足以下三個條件：相同的通訊協定 (protocol)，即 http/https ; 相同的網域 (domain) ; 相同的通訊埠 (port)。
 
 而不是同源的情況下，就會產生一個跨來源 http 請求（cross-origin http request）。而跨來源請求必須遵守 CORS 的規範。當伺服器沒有正確設定時，請求就會因為違反 CORS 失敗，在 Chrome DevTool 就會看到以下的經典錯誤：
-`Access to fetch at *** from origin *** has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource. If an opaque response serves your needs, set the request's mode to 'no-cors' to fetch the resource with CORS disabled.`
+
+```
+Access to fetch at *** from origin *** has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource. If an opaque response serves your needs, set the request's mode to 'no-cors' to fetch the resource with CORS disabled.
+```
+
 <br />
 
 > 相關關鍵字：
