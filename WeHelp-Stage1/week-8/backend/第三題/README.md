@@ -49,7 +49,6 @@ Access to fetch at *** from origin *** has been blocked by CORS policy: No 'Acce
     })
     .then(function (data) {
       let posts = data["result"]["results"];
-      let array = [];
       //...以下省略
     });
 </script>
