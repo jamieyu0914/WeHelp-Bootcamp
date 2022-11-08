@@ -24,6 +24,7 @@ Access to fetch at *** from origin *** has been blocked by CORS policy: No 'Acce
 
 > 參考資源：
 
+- [AJAX 網路連線實務 - Front End 網頁前端工程教學](https://www.youtube.com/watch?v=6X8sDGFGRss&t=938s)
 - [什麼是 Ajax？ 搞懂非同步請求 (Async request) 概念](https://tw.alphacamp.co/blog/ajax-asynchronous-request)
 - [從 XHR 到 Fetch](https://www.ithome.com.tw/voice/121435)
 - [用淺顯方式說明 Javascript 的 Promise](https://ithelp.ithome.com.tw/articles/10230214)
