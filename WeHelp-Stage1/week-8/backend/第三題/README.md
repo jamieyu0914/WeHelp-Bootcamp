@@ -17,3 +17,13 @@
 <hr >
 
 2. 我們可以在自己的網頁中，使用 fetch() 或是 XMLHttpRequest 連結到 https://www.google.com/ 並取得回應嗎?
+
+<hr >
+
+3. 我們可以在自己的網頁中，使用 fetch() 或是 XMLHttpRequest 連結到https://padax.github.io/taipei-day-trip-resources/taipei-attractions-assignment.json 並取得回應嗎?和上述的狀況，差別在哪裡?
+
+可以，請參考第一階段 week-3 的 index.html
+
+<hr >
+
+4. 如何開放我們自己開發的 API，讓別的網站透過 fecth() 或是 XMLHttpRequest 連結，達到如同第 3 點的可能性。
