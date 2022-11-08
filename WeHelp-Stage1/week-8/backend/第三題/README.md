@@ -28,7 +28,7 @@ Access to fetch at *** from origin *** has been blocked by CORS policy: No 'Acce
 - [從 XHR 到 Fetch](https://www.ithome.com.tw/voice/121435)
 - [用淺顯方式說明 Javascript 的 Promise](https://ithelp.ithome.com.tw/articles/10230214)
 - [Promise - JavaScript - MDN Web Docs](https://developer.mozilla.org/zh-TW/docs/Web/JavaScript/Reference/Global_Objects/Promise)
-- [跨來源資源共用（CORS](https://developer.mozilla.org/zh-TW/docs/Web/HTTP/CORS)
+- [跨來源資源共用（CORS)](https://developer.mozilla.org/zh-TW/docs/Web/HTTP/CORS)
 - [[教學] CORS 是什麼? 如何設定 CORS?](https://shubo.io/what-is-cors/#什麼是-cors-cross-origin-resource-sharing)
 - [使用跨來源資源分享 (CORS) -AWS](https://docs.aws.amazon.com/zh_tw/AmazonS3/latest/userguide/cors.html)
 
