@@ -2,11 +2,11 @@
 
 ### 1. 什麼是 CORS?
 
-簡單地說，CORS (Cross-Origin Resource Sharing) 是針對不同源的請求而定的規範，透過 JavaScript 存取非同源資源時，server 必須明確告知瀏覽器允許何種請求，只有 server 允許的請求能夠被瀏覽器實際發送，否則會失敗。
+### 簡單地說，CORS (Cross-Origin Resource Sharing) 是針對不同源的請求而定的規範，透過 JavaScript 存取非同源資源時，server 必須明確告知瀏覽器允許何種請求，只有 server 允許的請求能夠被瀏覽器實際發送，否則會失敗。
 
 > 相關關鍵字：
 
-跨來源 HTTP 請求, XMLHttpRequest, Fetch, 同源政策（same-origin policy）
+#### 跨來源 HTTP 請求, XMLHttpRequest, Fetch, 同源政策(same-origin policy)
 
 > 參考資源：
 
