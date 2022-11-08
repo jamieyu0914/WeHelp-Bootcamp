@@ -34,13 +34,15 @@ Access to fetch at *** from origin *** has been blocked by CORS policy: No 'Acce
 
 <hr >
 
-2. 我們可以在自己的網頁中，使用 fetch() 或是 XMLHttpRequest 連結到 https://www.google.com/ 並取得回應嗎?
+### 2. 我們可以在自己的網頁中，使用 fetch() 或是 XMLHttpRequest 連結到 https://www.google.com/ 並取得回應嗎?
+
+不行，因為使用 fetch() 或是 XMLHttpRequest 的前端要求，需要取得後端的資源，而且必須是符合格式的資料(例如，text 或 json 格式)。
 
 <hr >
 
 ### 3. 我們可以在自己的網頁中，使用 fetch() 或是 XMLHttpRequest 連結到https://padax.github.io/taipei-day-trip-resources/taipei-attractions-assignment.json 並取得回應嗎?和上述的狀況，差別在哪裡?
 
-可以，請參考以下 第一階段 week-3 的 index.html 練習內容。
+可以，請參考以下 第一階段 week-3 的 index.html 練習內容。與上述連結到 https://www.google.com/ 主要差別的差別是，https://padax.github.io/taipei-day-trip-resources/taipei-attractions-assignment.json 提供了相對應的 json 資料格式，使 fetch()能夠成功取得回應物件。
 
 ```html
 <script>
