@@ -66,7 +66,6 @@ from mysql.connector import Error
 from mysql.connector import pooling
 import json
 
-
 connection_pool = pooling.MySQLConnectionPool(pool_name="my_connection_pool",
                                                 pool_size=5,
                                                 pool_reset_session=True,
@@ -75,13 +74,12 @@ connection_pool = pooling.MySQLConnectionPool(pool_name="my_connection_pool",
                                                 user='root',
                                                 password='******') #Connection Pool
 
-
-
 app=Flask(
     __name__,
     static_folder="public",
     static_url_path="/")
 app.secret_key="any string but secret"
+
 @app.route("/signup", methods=["POST"])
 def signup():
     name = request.form["name"]
