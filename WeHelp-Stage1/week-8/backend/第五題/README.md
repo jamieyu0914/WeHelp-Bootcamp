@@ -2,7 +2,7 @@
 
 ### 1. 什麼是 Connection Pool?能帶給我們什麼好處?為什麼?
 
-覺得 Connection Pooling 圖示定義清楚的一張圖：
+覺得表達 Connection Pooling 概念相當清楚的一張圖：
 ![Connection Pooling](https://i.imgur.com/VI2AbSo.png)
 <br />
 
