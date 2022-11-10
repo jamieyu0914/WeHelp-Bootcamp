@@ -37,7 +37,7 @@ Access to fetch at *** from origin *** has been blocked by CORS policy: No 'Acce
 
 ### 2. 我們可以在自己的網頁中，使用 fetch() 或是 XMLHttpRequest 連結到 https://www.google.com/ 並取得回應嗎?
 
-不行，因為使用 fetch() 或是 XMLHttpRequest 連結到 https://www.google.com/，跨來源請求資源時，CORS規範會造成瀏覽器阻擋取得回應。若要在瀏覽器上跨來源存取API資料，就要通行證，新的http header。
+不行，因為使用 fetch() 或是 XMLHttpRequest 連結到 https://www.google.com/，跨來源請求資源時，CORS規範會造成瀏覽器阻擋取得回應。
 
 <hr >
 
@@ -61,13 +61,19 @@ Access to fetch at *** from origin *** has been blocked by CORS policy: No 'Acce
 </script>
 ```
 
+<hr >
+
+### 4. 如何開放我們自己開發的 API，讓別的網站透過 fecth() 或是 XMLHttpRequest 連結，達到如同第 3 點的可能性。
+
+在自己開發的 API 中，若要在瀏覽器上允許跨來源存取 API 資料，就要給予相對應的通行證，新的 http header，才能達到如同第 3 點的可能性。
+
 **根據不同的需求，需要不同的通行證，後端要怎麼設定哪些通行證呢？有哪些通行證呢？**
 <br />
 <br />
 
 - Access-Control-Allow-Origin:
-  允許哪些網址可以跨網域使用此資源。 Eg. http://web.com.tw 或 給 _ 允許所有來源可以跨域存取。<br />
-  ex. Access-Control-Allow-Origin: _<br />
+  允許哪些網址可以跨網域使用此資源。 Eg. http://web.com.tw 或 給\*允許所有來源可以跨域存取。<br />
+  ex. Access-Control-Allow-Origin: \_<br />
   <br />
 - Access-Control-Allow-Credentials：
   當前端 API request 需要帶 cookies 時，就須此屬性並將值設定為 true，預設為 false。另外，當此屬性設定為 true 時，Access-Control-Allow-Origin 則不能設定為\*<br />
@@ -87,8 +93,6 @@ Access to fetch at *** from origin *** has been blocked by CORS policy: No 'Acce
 - Access-Control-Expose-Headers：表示 API Server 允許瀏覽器存取 response header 的白名單
   ex. Access-Control-Expose-Headers:X-My-Custom-Header -> 表示瀏覽器能夠存取 response 當中的 X-My-Custom-Header
 
-<hr >
+> 參考資源：
 
-### 4. 如何開放我們自己開發的 API，讓別的網站透過 fecth() 或是 XMLHttpRequest 連結，達到如同第 3 點的可能性。
-
-在自己開發的 API 中，最終回應(return)的物件內容應該符合前端規格的 text 或 json 資料格式，才能達到如同第 3 點的可能性。
+- [DAY06 - API 串接常見問題 - CORS - 解決 CORS 問題篇](https://ithelp.ithome.com.tw/m/articles/10268821)
