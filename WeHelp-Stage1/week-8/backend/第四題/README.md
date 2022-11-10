@@ -31,10 +31,27 @@ Index (索引鍵)：
 
 ### 2. 請在 member 資料表中加入適當的索引，加快以下 SQL 語句的查詢效率 SELECT \* FROM member WHERE username=’test’ and password=’test’
 
+建立兩個新資料表 username、password，並個別將 username_id 與 password_id 設定為主鍵欄位。
+同時，以分別設定外鍵與 member_id 相互連結。
+
 <hr >
 
 ### 3. 如何驗證查詢效率是否真的變更好了?
 
+可以透過使用 show profiles 來分析當前會話中語句執行的資源消耗情況，進行 SQL 的調優測量。
+
+> 參考資源：
+
+- [「MySQL 系列」分析 Sql 執行時間及查詢執行計劃(附資料庫和一千萬資料)](https://www.gushiciku.cn/pl/gmGu/zh-tw)
+
 <hr >
 
 ### 4. 為什麼索引的設置能有效地改善查詢效率?
+
+索引的最大作用就是加快查詢速度，它能從根本上減少需要掃表的記錄/行的數量。
+能夠有效地化解資料表中的千萬條記錄，資料庫每一條都要檢查的難題。
+也就是避免就是所謂的“全表掃描”（full table scan）。
+
+> 參考資源：
+
+- [索引到底能提升多少查询效率？何时该使用索引？一文快速搞懂数据库索引及合理使用它](https://bbs.huaweicloud.com/blogs/303909)
