@@ -37,13 +37,13 @@ Access to fetch at *** from origin *** has been blocked by CORS policy: No 'Acce
 
 ### 2. 我們可以在自己的網頁中，使用 fetch() 或是 XMLHttpRequest 連結到 https://www.google.com/ 並取得回應嗎?
 
-不行，因為使用 fetch() 或是 XMLHttpRequest 的前端要求，需要取得後端的資源，而且必須是符合格式的資料(例如，text 或 json 格式)。
+不行，因為使用 fetch() 或是 XMLHttpRequest 連結到 https://www.google.com/，跨來源請求資源時，CORS規範會造成瀏覽器阻擋取得回應。若要在瀏覽器上跨來源存取API資料，就要通行證，新的http header。
 
 <hr >
 
 ### 3. 我們可以在自己的網頁中，使用 fetch() 或是 XMLHttpRequest 連結到https://padax.github.io/taipei-day-trip-resources/taipei-attractions-assignment.json 並取得回應嗎?和上述的狀況，差別在哪裡?
 
-可以，請參考以下 第一階段 week-3 的 index.html 練習內容。與上述連結到 https://www.google.com/ 主要差別的差別是，https://padax.github.io/taipei-day-trip-resources/taipei-attractions-assignment.json 提供了相對應的 json 資料格式，使 fetch()能夠成功取得回應物件。
+可以，請參考下方第一階段 week-3 的 index.html 練習內容。與上述連結到 https://www.google.com/ 主要差別的差別是，https://padax.github.io/taipei-day-trip-resources/taipei-attractions-assignment.json 的網頁後端程式提供了相對應的 CORS header 設置 - Access-Control-Allow-Origin: \*，允許任何的網址都可以跨網域使用此資源，使 fetch()能夠成功取得回應物件。
 
 ```html
 <script>
@@ -60,6 +60,32 @@ Access to fetch at *** from origin *** has been blocked by CORS policy: No 'Acce
     });
 </script>
 ```
+
+**根據不同的需求，需要不同的通行證，後端要怎麼設定哪些通行證呢？有哪些通行證呢？**
+<br />
+<br />
+
+- Access-Control-Allow-Origin:
+  允許哪些網址可以跨網域使用此資源。 Eg. http://web.com.tw 或 給 _ 允許所有來源可以跨域存取。<br />
+  ex. Access-Control-Allow-Origin: _<br />
+  <br />
+- Access-Control-Allow-Credentials：
+  當前端 API request 需要帶 cookies 時，就須此屬性並將值設定為 true，預設為 false。另外，當此屬性設定為 true 時，Access-Control-Allow-Origin 則不能設定為\*<br />
+  ex. Access-Control-Allow-Credentials:true<br />
+  <br />
+- Access-Control-Allow-Methods：支援的 Method 有哪些(POST, GET, PUT, DELETE...)
+  ex. Access-Control-Allow-Methods:POST, GET, PUT, DELETE<br />
+  <br />
+- Access-Control-Allow-Headers：
+  允許哪些自定義的 header<br />
+  ex. Access-Control-Allow-Headers: Authorization<br />
+  <br />
+- Access-Control-Max-Age：
+  preflight request 的資訊（包含 Access-Control-Allow-Methods 和 Access-Control-Allow-Headers 可以 cache 的秒數上限(單位：秒)。每一個瀏覽器會有預設的最大值 ，當 Access-Control-Max-Age 大於預設值時，會優先採用預設值。<br />
+  ex. Access-Control-Max-Age: 600 // Cache results of a preflight request for 10 minutes<br />
+  <br />
+- Access-Control-Expose-Headers：表示 API Server 允許瀏覽器存取 response header 的白名單
+  ex. Access-Control-Expose-Headers:X-My-Custom-Header -> 表示瀏覽器能夠存取 response 當中的 X-My-Custom-Header
 
 <hr >
 
