@@ -46,6 +46,7 @@ explain select * from statuses_status where id=11;
 ```
 
 <br />
+
 - 方法二：可以透過使用 show profiles 來分析當前會話中語句執行的資源消耗情況，進行 SQL 的調優測量。
 
 > 參考資源：
