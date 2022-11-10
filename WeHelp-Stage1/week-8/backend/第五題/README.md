@@ -20,9 +20,9 @@
 
 ### 2. 如何使用官方提供的 mysql-connector-python 套件，建立 Connection Pool。
 
-在官方的提供的 MySQL Connector/Python Developer Guide 文件中有一項目是 Connector/Python Connection Establishment，
-而文件中又在 Connector/Python Connection Arguments 的章節裡頭提及了 Connection Pooling。
-並在章節 9.1 Connector/Python Connection Pooling 中詳細說明了相關支援的套件。
+在官方的提供的 MySQL Connector/Python Developer Guide 文件中有一項目是 Connector/Python Connection Establishment， <br />
+而文件中又在 Connector/Python Connection Arguments 的章節裡頭提及了 Connection Pooling。 <br />
+並在章節 9.1 Connector/Python Connection Pooling 中詳細說明了相關支援的套件。 <br />
 
 其中建立 Connection Pool，請參考以下範例-
 **To create a connection pool explicitly**: Create a **_MySQLConnectionPool_** object
