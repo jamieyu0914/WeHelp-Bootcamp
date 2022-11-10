@@ -40,22 +40,64 @@ cnxpool = mysql.connector.pooling.MySQLConnectionPool(pool_name = "mypool",
 
 <hr >
 
-### 3. 如何驗證查詢效率是否真的變更好了?
+### 3. 需要從資料庫取得查詢資料時，如何從 Connection Pool 取得 Connection，並且在資料操作結束後，歸還 Connection 到 Connetion Pool 中。請展示你完成上述標準操作的程式碼。
 
-可以透過使用 show profiles 來分析當前會話中語句執行的資源消耗情況，進行 SQL 的調優測量。
+請參考以下 第一階段 week-7 的 app.py 練習內容。
 
-> 參考資源：
+```python
+from flask import Flask
+from flask import request
+from flask import Response
+from flask import redirect
+from flask import render_template
+from flask import session
+from flask import jsonify
+from mysql.connector import Error
+from mysql.connector import pooling
+import json
 
-- [「MySQL 系列」分析 Sql 執行時間及查詢執行計劃(附資料庫和一千萬資料)](https://www.gushiciku.cn/pl/gmGu/zh-tw)
 
-<hr >
+connection_pool = pooling.MySQLConnectionPool(pool_name="my_connection_pool",
+                                                pool_size=5,
+                                                pool_reset_session=True,
+                                                host='localhost',
+                                                database='member',
+                                                user='root',
+                                                password='******') #Connection Pool
 
-### 4. 為什麼索引的設置能有效地改善查詢效率?
 
-索引的最大作用就是加快查詢速度，它能從根本上減少需要掃表的記錄/行的數量。
-能夠有效地化解資料表中的千萬條記錄，資料庫每一條都要檢查的難題。
-也就是避免就是所謂的“全表掃描”（full table scan）。
 
-> 參考資源：
+app=Flask(
+    __name__,
+    static_folder="public",
+    static_url_path="/") #建立 Application 物件
+app.secret_key="any string but secret" #設定 Session 的密鑰
 
-- [索引到底能提升多少查询效率？何时该使用索引？一文快速搞懂数据库索引及合理使用它](https://bbs.huaweicloud.com/blogs/303909)
+@app.route("/signup", methods=["POST"])
+def signup():
+    name = request.form["name"]
+    username = request.form["username"]
+    password = request.form["password"]
+    if(name =="" or username == "" or password == ""):
+        return redirect('/error?message=請輸入帳號、密碼')
+    sql = "SELECT username FROM member_list WHERE username=%s" #SQL指令 檢查是否有重複的帳號 (username)
+    val = (username,)
+    try:
+        # Get connection object from a pool
+        connection_object = connection_pool.get_connection() #從 Connection Pool 取得 Connection
+        cursor = connection_object.cursor()
+        print("MySQL connection is opened")
+        cursor.execute(sql, val)
+        myresult = cursor.fetchall()
+        x=""
+        for x in myresult:
+            print(x)
+    except Error as e:
+        print("Error while connecting to MySQL using Connection pool ", e)
+    finally:
+        # closing database connection.
+        cursor.close()
+        connection_object.close() #歸還 Connection 到 Connetion Pool 中
+    print("MySQL connection is closed")
+    #以下省略
+```
