@@ -6,7 +6,7 @@
 ![Connection Pooling](https://i.imgur.com/VI2AbSo.png)
 <br />
 
-而透過 mysql.connector 的 Connection Pool 工具連線資料庫主要有兩大好處： 1.可以使資料庫持續保持連線(pooling 的狀態)，經由預建及保留連線減少 TCP 連線關閉的成本 2.可以限制連線數量(connection_pool.pool_size)，並預防資料庫大量連線時影響服務
+透過 mysql.connector 的 Connection Pool 工具連線資料庫主要有兩大好處： <br /> 1.可以使資料庫持續保持連線(pooling 的狀態)，經由預建及保留連線減少 TCP 連線關閉的成本 <br /> 2.可以限制連線數量(connection_pool.pool_size)，並預防資料庫大量連線時影響服務
 
 > 相關關鍵字：
 
