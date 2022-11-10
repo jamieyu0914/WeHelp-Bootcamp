@@ -45,8 +45,6 @@ Access to fetch at *** from origin *** has been blocked by CORS policy: No 'Acce
 
 可以，請參考下方第一階段 week-3 的 index.html 練習內容。與上述連結到 https://www.google.com/ 主要差別的差別是，https://padax.github.io/taipei-day-trip-resources/taipei-attractions-assignment.json 的網頁後端程式提供了相對應的 CORS header 設置 - Access-Control-Allow-Origin: \*，允許任何的網址都可以跨網域使用此資源，使 fetch()能夠成功取得回應物件。
 
-![Access-Control-Allow-Origin](https://github.com/jamieyu0914/WeHelp-Bootcamp/blob/main/WeHelp-Stage1/week-8/backend/第三題/Access-Control-Allow-Origin.png)
-
 ```html
 <script>
   // 利用 fetch 進行連線並取得資料{
@@ -62,6 +60,8 @@ Access to fetch at *** from origin *** has been blocked by CORS policy: No 'Acce
     });
 </script>
 ```
+
+![Access-Control-Allow-Origin](https://github.com/jamieyu0914/WeHelp-Bootcamp/blob/main/WeHelp-Stage1/week-8/backend/第三題/Access-Control-Allow-Origin.png)
 
 <hr >
 
