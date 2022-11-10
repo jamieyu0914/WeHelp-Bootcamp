@@ -24,7 +24,7 @@
 而文件中又在 Connector/Python Connection Arguments 的章節裡頭提及了 Connection Pooling。 <br />
 並在章節 9.1 Connector/Python Connection Pooling 中詳細說明了相關支援的套件。 <br />
 
-其中建立 Connection Pool，請參考以下範例-
+其中建立 Connection Pool，請參考以下範例-<br />
 **To create a connection pool explicitly**: Create a **_MySQLConnectionPool_** object
 
 ```python
