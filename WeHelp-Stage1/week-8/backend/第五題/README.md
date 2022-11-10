@@ -38,9 +38,19 @@ cnxpool = mysql.connector.pooling.MySQLConnectionPool(pool_name = "mypool",
                                                       **dbconfig)
 ```
 
+> 參考資源：
+
+- [MySQL Connector/Python Developer Guide](https://dev.mysql.com/doc/connector-python/en/)
+- [Chapter 7 Connector/Python Connection Establishment](https://dev.mysql.com/doc/connector-python/en/connector-python-connecting.html)
+- [7.1 Connector/Python Connection Arguments](https://dev.mysql.com/doc/connector-python/en/connector-python-connectargs.html)
+- [9.1 Connector/Python Connection Pooling](https://dev.mysql.com/doc/connector-python/en/connector-python-connection-pooling.html)
+- [10.3 pooling.MySQLConnectionPool Class](https://dev.mysql.com/doc/connector-python/en/connector-python-api-mysqlconnectionpool.html)
+
 <hr >
 
 ### 3. 需要從資料庫取得查詢資料時，如何從 Connection Pool 取得 Connection，並且在資料操作結束後，歸還 Connection 到 Connetion Pool 中。請展示你完成上述標準操作的程式碼。
+
+首先，會透過 from mysql.connector import pooling 導入 Connection Pool 套件，並由 pooling.MySQLConnectionPool()帶入資料庫連線時所需的基本資訊，再經由 connection_pool.get_connection()從 Connection Pool 取得 Connection，呼叫資料指標(cursor)讀出資料，並在資料操作結束後，關閉資料指標(cursor)，且歸還 Connection 到 Connetion Pool 中。
 
 請參考以下 第一階段 week-7 的 app.py 練習內容。
 
@@ -70,9 +80,8 @@ connection_pool = pooling.MySQLConnectionPool(pool_name="my_connection_pool",
 app=Flask(
     __name__,
     static_folder="public",
-    static_url_path="/") #建立 Application 物件
-app.secret_key="any string but secret" #設定 Session 的密鑰
-
+    static_url_path="/")
+app.secret_key="any string but secret"
 @app.route("/signup", methods=["POST"])
 def signup():
     name = request.form["name"]
@@ -101,3 +110,8 @@ def signup():
     print("MySQL connection is closed")
     #以下省略
 ```
+
+> 參考資源：
+
+- [寫給新手的 Cursor 小筆記 - 程式宅急便](http://kyleap.blogspot.com/2013/12/ms-sqlcursor.html)
+- [Python — MySQL](https://medium.com/jeasee隨筆/python-mysql-acd7a9679109)
