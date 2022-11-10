@@ -37,7 +37,7 @@ Access to fetch at *** from origin *** has been blocked by CORS policy: No 'Acce
 
 ### 2. 我們可以在自己的網頁中，使用 fetch() 或是 XMLHttpRequest 連結到 https://www.google.com/ 並取得回應嗎?
 
-不行，因為使用 fetch() 或是 XMLHttpRequest 連結到 https://www.google.com/，跨來源請求資源時，CORS規範會造成瀏覽器阻擋取得回應。
+不行，因為使用 fetch() 或是 XMLHttpRequest 連結到 https://www.google.com/ ，跨來源請求資源時，CORS 規範會造成瀏覽器阻擋取得回應。
 
 <hr >
 
