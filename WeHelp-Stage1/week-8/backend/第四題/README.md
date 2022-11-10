@@ -38,11 +38,22 @@ Index (索引鍵)：
 
 ### 3. 如何驗證查詢效率是否真的變更好了?
 
-可以透過使用 show profiles 來分析當前會話中語句執行的資源消耗情況，進行 SQL 的調優測量。
+- 方法一：查詢優化神器 - explain 命令，explain 顯示了 mysql 如何使用索引來處理 select 語句以及連接表，可以幫助選擇更好的索引和寫出更優化的查詢語句。
+  使用方法，在 select 語句前加上 explain 就可以了，如：
+
+```mysql
+explain select * from statuses_status where id=11;
+```
+
+<br />
+- 方法二：可以透過使用 show profiles 來分析當前會話中語句執行的資源消耗情況，進行 SQL 的調優測量。
 
 > 參考資源：
 
 - [「MySQL 系列」分析 Sql 執行時間及查詢執行計劃(附資料庫和一千萬資料)](https://www.gushiciku.cn/pl/gmGu/zh-tw)
+- [MySQL 索引原理及慢查詢優化（轉自：美團 tech）](https://www.796t.com/content/1550036301.html)
+- [mysql explain 用法介紹和結果的含義。都有哪些好處呢？](https://kknews.cc/zh-tw/code/8v6ymjq.html)
+- [13.7.7.30 SHOW PROFILE Statement](https://dev.mysql.com/doc/refman/8.0/en/show-profile.html)
 
 <hr >
 
