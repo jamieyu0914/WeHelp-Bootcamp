@@ -69,5 +69,6 @@ XSS 漏洞可以追溯到 1990 年代。大量的網站曾遭受 XSS 漏洞攻�
 
 **利用 Server side 之 Session 功能傳遞參數**<br />
 藉由先前所描述之安全漏洞可以得知，許多問題的根源都是來自不安全的參數傳遞方式，其中尤以 GET 為最多。<br />
-然而目前成熟的網頁程式環境，包括：ASP.NET 與 PHP、Java 等，都已經提供 server side 的 session 功能。由 server side 統一進行 session 建立、檢查、刪除等維護工作，都可以有效降低人為疏失造成的安全漏洞，並且大幅簡化程式設計人員的負擔。未來在程式開發時，只要盡量將頁面之間的變數傳遞改用 session 方式，即可免於參數遭使用者惡意竄改之威脅。舉例來說，使用者通過帳號密碼驗證後，即可將使用者名稱存放於 server side 的 session variable 中，未來如果需要進行成績查詢、地址更改等功能，對應的 query.php 及 address.php 程式可以直接從 session variable 中取得使用者名稱，而不必再利用 GET、POST 等方式傳遞資料，杜絕因為參數遭竄改所引發之安全漏洞。
+然而目前成熟的網頁程式環境，包括：ASP.NET 與 PHP、Java 等，都已經提供 server side 的 session 功能。由 server side 統一進行 session 建立、檢查、刪除等維護工作，都可以有效降低人為疏失造成的安全漏洞，並且大幅簡化程式設計人員的負擔。未來在程式開發時，只要盡量將頁面之間的變數傳遞改用 session 方式，即可免於參數遭使用者惡意竄改之威脅。
+舉例來說，使用者通過帳號密碼驗證後，即可將使用者名稱存放於 server side 的 session variable 中，未來如果需要進行成績查詢、地址更改等功能，對應的 query.php 及 address.php 程式可以直接從 session variable 中取得使用者名稱，而不必再利用 GET、POST 等方式傳遞資料，杜絕因為參數遭竄改所引發之安全漏洞。
 <br />
